@@ -6,7 +6,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TabViewController">
             <connections>
-                <outlet property="ContentView" destination="4YS-Mb-GmA" id="Du8-Gk-kbD"/>
+                <outlet property="chatView" destination="nzV-cc-FUO" id="LNr-Dv-dQr"/>
+                <outlet property="composeModal" destination="6QK-5X-A7t" id="s6F-LA-xG6"/>
+                <outlet property="contentView" destination="4YS-Mb-GmA" id="0Ph-AV-WV0"/>
+                <outlet property="linkView" destination="gkz-en-azl" id="B20-fL-tBk"/>
+                <outlet property="nevermindButton" destination="46H-2B-e78" id="Ok3-K1-2i8"/>
+                <outlet property="photoView" destination="QB3-0W-MGF" id="LOl-Pl-OZ2"/>
+                <outlet property="quoteView" destination="1Z8-dg-QZW" id="clZ-ZL-dCR"/>
+                <outlet property="textView" destination="d0z-9F-OY8" id="2w9-gf-g48"/>
+                <outlet property="videoView" destination="TTU-jz-xXi" id="2qv-K4-IEV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -92,6 +100,91 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
+                <view alpha="0.94999999999999996" contentMode="scaleToFill" id="6QK-5X-A7t" userLabel="ComposeModal">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="d0z-9F-OY8" userLabel="Text">
+                            <rect key="frame" x="20" y="155" width="82" height="108"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon" id="8KR-A3-eT7">
+                                    <rect key="frame" x="4" y="5" width="74" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="QB3-0W-MGF" userLabel="Photo">
+                            <rect key="frame" x="119" y="155" width="82" height="108"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon2" id="4iI-Tm-naV">
+                                    <rect key="frame" x="4" y="6" width="74" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="1Z8-dg-QZW" userLabel="Quote">
+                            <rect key="frame" x="218" y="155" width="82" height="108"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon3" id="Kh3-EO-97A">
+                                    <rect key="frame" x="4" y="5" width="74" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="gkz-en-azl" userLabel="Link">
+                            <rect key="frame" x="20" y="274" width="82" height="108"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon4" id="xve-2E-uPh">
+                                    <rect key="frame" x="4" y="6" width="74" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="nzV-cc-FUO" userLabel="Chat">
+                            <rect key="frame" x="119" y="274" width="82" height="108"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon5" id="d68-Fd-iof">
+                                    <rect key="frame" x="4" y="6" width="74" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="TTU-jz-xXi" userLabel="Video">
+                            <rect key="frame" x="218" y="274" width="82" height="108"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="icon6" id="mQb-yD-Pgd">
+                                    <rect key="frame" x="4" y="7" width="74" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.20392156859999999" green="0.27450980390000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="46H-2B-e78">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.23921568627450979" green="0.30196078431372547" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Nevermind">
+                        <color key="titleColor" red="0.52156862745098043" green="0.55294117647058827" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onDismiss:" destination="-1" eventType="touchUpInside" id="kis-hZ-HGA"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -104,6 +197,12 @@
         <image name="compose_button" width="50" height="35"/>
         <image name="home_icon" width="35" height="35"/>
         <image name="home_selected_icon" width="35" height="35"/>
+        <image name="icon" width="74" height="74"/>
+        <image name="icon2" width="74" height="74"/>
+        <image name="icon3" width="74" height="74"/>
+        <image name="icon4" width="74" height="74"/>
+        <image name="icon5" width="74" height="74"/>
+        <image name="icon6" width="74" height="74"/>
         <image name="search_icon" width="35" height="35"/>
         <image name="search_selected_icon" width="35" height="35"/>
         <image name="trending_icon" width="35" height="35"/>

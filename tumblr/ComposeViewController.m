@@ -10,6 +10,13 @@
 
 @interface ComposeViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *textButton;
+@property (weak, nonatomic) IBOutlet UIView *photoButton;
+@property (weak, nonatomic) IBOutlet UIView *quoteButton;
+@property (weak, nonatomic) IBOutlet UIView *linkButton;
+@property (weak, nonatomic) IBOutlet UIView *chatButton;
+@property (weak, nonatomic) IBOutlet UIView *videoButton;
+
 @end
 
 @implementation ComposeViewController
@@ -26,7 +33,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,5 +43,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    
+}
+
 
 @end
