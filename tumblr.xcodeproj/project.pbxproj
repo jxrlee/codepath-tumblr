@@ -21,6 +21,16 @@
 		7AA09E1B1965FDAA004A23C6 /* tumblrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA09E1A1965FDAA004A23C6 /* tumblrTests.m */; };
 		7AA09E271965FE1A004A23C6 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA09E251965FE1A004A23C6 /* TabViewController.m */; };
 		7AA09E281965FE1A004A23C6 /* TabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA09E261965FE1A004A23C6 /* TabViewController.xib */; };
+		7AA09E2D196609F1004A23C6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA09E2B196609F1004A23C6 /* HomeViewController.m */; };
+		7AA09E2E196609F1004A23C6 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA09E2C196609F1004A23C6 /* HomeViewController.xib */; };
+		7AA09E3219660A0B004A23C6 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA09E3019660A0B004A23C6 /* SearchViewController.m */; };
+		7AA09E3319660A0B004A23C6 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA09E3119660A0B004A23C6 /* SearchViewController.xib */; };
+		7AA09E3719660A1C004A23C6 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA09E3519660A1C004A23C6 /* ComposeViewController.m */; };
+		7AA09E3819660A1C004A23C6 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA09E3619660A1C004A23C6 /* ComposeViewController.xib */; };
+		7AA09E3C19660A5F004A23C6 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA09E3A19660A5F004A23C6 /* AccountViewController.m */; };
+		7AA09E3D19660A5F004A23C6 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA09E3B19660A5F004A23C6 /* AccountViewController.xib */; };
+		7AA09E4119660A6F004A23C6 /* TrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA09E3F19660A6E004A23C6 /* TrendingViewController.m */; };
+		7AA09E4219660A6F004A23C6 /* TrendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA09E4019660A6F004A23C6 /* TrendingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +63,21 @@
 		7AA09E241965FE1A004A23C6 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		7AA09E251965FE1A004A23C6 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		7AA09E261965FE1A004A23C6 /* TabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabViewController.xib; sourceTree = "<group>"; };
+		7AA09E2A196609F1004A23C6 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		7AA09E2B196609F1004A23C6 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		7AA09E2C196609F1004A23C6 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		7AA09E2F19660A0B004A23C6 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		7AA09E3019660A0B004A23C6 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		7AA09E3119660A0B004A23C6 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		7AA09E3419660A1C004A23C6 /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		7AA09E3519660A1C004A23C6 /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		7AA09E3619660A1C004A23C6 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		7AA09E3919660A5F004A23C6 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		7AA09E3A19660A5F004A23C6 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		7AA09E3B19660A5F004A23C6 /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		7AA09E3E19660A6E004A23C6 /* TrendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingViewController.h; sourceTree = "<group>"; };
+		7AA09E3F19660A6E004A23C6 /* TrendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingViewController.m; sourceTree = "<group>"; };
+		7AA09E4019660A6F004A23C6 /* TrendingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +140,7 @@
 				7AA09E041965FDAA004A23C6 /* JLAppDelegate.h */,
 				7AA09E051965FDAA004A23C6 /* JLAppDelegate.m */,
 				7AA09E071965FDAA004A23C6 /* Images.xcassets */,
-				7AA09E241965FE1A004A23C6 /* TabViewController.h */,
-				7AA09E251965FE1A004A23C6 /* TabViewController.m */,
-				7AA09E261965FE1A004A23C6 /* TabViewController.xib */,
+				7AA09E29196609D6004A23C6 /* ViewControllers */,
 				7AA09DFC1965FDAA004A23C6 /* Supporting Files */,
 			);
 			path = tumblr;
@@ -150,6 +173,31 @@
 				7AA09E171965FDAA004A23C6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7AA09E29196609D6004A23C6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7AA09E241965FE1A004A23C6 /* TabViewController.h */,
+				7AA09E251965FE1A004A23C6 /* TabViewController.m */,
+				7AA09E261965FE1A004A23C6 /* TabViewController.xib */,
+				7AA09E2A196609F1004A23C6 /* HomeViewController.h */,
+				7AA09E2B196609F1004A23C6 /* HomeViewController.m */,
+				7AA09E2C196609F1004A23C6 /* HomeViewController.xib */,
+				7AA09E2F19660A0B004A23C6 /* SearchViewController.h */,
+				7AA09E3019660A0B004A23C6 /* SearchViewController.m */,
+				7AA09E3119660A0B004A23C6 /* SearchViewController.xib */,
+				7AA09E3419660A1C004A23C6 /* ComposeViewController.h */,
+				7AA09E3519660A1C004A23C6 /* ComposeViewController.m */,
+				7AA09E3619660A1C004A23C6 /* ComposeViewController.xib */,
+				7AA09E3919660A5F004A23C6 /* AccountViewController.h */,
+				7AA09E3A19660A5F004A23C6 /* AccountViewController.m */,
+				7AA09E3B19660A5F004A23C6 /* AccountViewController.xib */,
+				7AA09E3E19660A6E004A23C6 /* TrendingViewController.h */,
+				7AA09E3F19660A6E004A23C6 /* TrendingViewController.m */,
+				7AA09E4019660A6F004A23C6 /* TrendingViewController.xib */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +277,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AA09E001965FDAA004A23C6 /* InfoPlist.strings in Resources */,
+				7AA09E3D19660A5F004A23C6 /* AccountViewController.xib in Resources */,
+				7AA09E3819660A1C004A23C6 /* ComposeViewController.xib in Resources */,
 				7AA09E081965FDAA004A23C6 /* Images.xcassets in Resources */,
 				7AA09E281965FE1A004A23C6 /* TabViewController.xib in Resources */,
+				7AA09E4219660A6F004A23C6 /* TrendingViewController.xib in Resources */,
+				7AA09E3319660A0B004A23C6 /* SearchViewController.xib in Resources */,
+				7AA09E2E196609F1004A23C6 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +304,12 @@
 			files = (
 				7AA09E271965FE1A004A23C6 /* TabViewController.m in Sources */,
 				7AA09E061965FDAA004A23C6 /* JLAppDelegate.m in Sources */,
+				7AA09E3C19660A5F004A23C6 /* AccountViewController.m in Sources */,
+				7AA09E3219660A0B004A23C6 /* SearchViewController.m in Sources */,
+				7AA09E3719660A1C004A23C6 /* ComposeViewController.m in Sources */,
+				7AA09E4119660A6F004A23C6 /* TrendingViewController.m in Sources */,
 				7AA09E021965FDAA004A23C6 /* main.m in Sources */,
+				7AA09E2D196609F1004A23C6 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
