@@ -92,7 +92,7 @@
     
     // add homeview
     [self.contentView addSubview:self.homeViewController.view];
-    
+    [self.homeButton    setSelected:YES];
     
     // add tooltip
     UIImage * tooltipImage = [UIImage imageNamed:@"tooltip"];
@@ -111,11 +111,21 @@
 
 - (IBAction)onHomeButton:(id)sender {
     
+    [self.homeButton    setSelected:YES];
+    [self.searchButton  setSelected:NO];
+    [self.accountButton  setSelected:NO];
+    [self.trendingButton  setSelected:NO];
+    
     [self.contentView addSubview:self.homeViewController.view];
     [self startTooltip];
 }
 
 - (IBAction)onSearchButton:(id)sender {
+    
+    [self.homeButton    setSelected:NO];
+    [self.searchButton  setSelected:YES];
+    [self.accountButton  setSelected:NO];
+    [self.trendingButton  setSelected:NO];
     
     [self stopTooltip];
     
@@ -193,6 +203,11 @@
 
 - (IBAction)onAccountButton:(id)sender {
     
+    [self.homeButton    setSelected:NO];
+    [self.searchButton  setSelected:NO];
+    [self.accountButton  setSelected:YES];
+    [self.trendingButton  setSelected:NO];
+    
     [self.contentView addSubview:self.accountViewController.view];
     [self startTooltip];
     
@@ -252,6 +267,10 @@
 
 - (IBAction)onTrendingButton:(id)sender {
     
+    [self.homeButton    setSelected:NO];
+    [self.searchButton  setSelected:NO];
+    [self.accountButton  setSelected:NO];
+    [self.trendingButton  setSelected:YES];
     
     //self.trendingViewController.view.frame = self.contentView.frame;
     [self.contentView addSubview:self.activityViewController.view];
