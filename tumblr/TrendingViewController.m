@@ -31,16 +31,14 @@
 {
     [super viewDidLoad];
     
-    //self.trendingScrollView.contentSize = self.trendingImageView.frame.size;
+    NSLog(@"trending view controller loaded");
     
-    self.trendingScrollView.contentSize = CGSizeMake(10000,10000);
+    self.trendingScrollView.contentSize = self.trendingImageView.frame.size;
     
-    NSLog(@"%f %f", self.trendingScrollView.contentOffset.x, self.trendingScrollView.contentOffset.y);
+    //NSLog(@"%f %f", self.trendingScrollView.contentOffset.x, self.trendingScrollView.contentOffset.y);
     
-    NSLog(@"%f %f", self.trendingScrollView.frame.size.width, self.trendingScrollView.frame
-          .size.height);
-    NSLog(@"%f %f", self.trendingImageView.frame.size.width, self.trendingImageView.frame
-          .size.height);
+    //NSLog(@"%f %f", self.trendingScrollView.frame.size.width, self.trendingScrollView.frame.size.height);
+    //NSLog(@"%f %f", self.trendingImageView.frame.size.width, self.trendingImageView.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning

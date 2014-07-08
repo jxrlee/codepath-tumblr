@@ -12,18 +12,32 @@
 #import "ComposeViewController.h"
 #import "AccountViewController.h"
 #import "TrendingViewController.h"
+#import "LoadingViewController.h"
+#import "ActivityViewController.h"
 
 
 @interface TabViewController ()
 
 @property (nonatomic, weak) IBOutlet UIView *contentView;
+
 @property (nonatomic, strong) HomeViewController *homeViewController;
 @property (nonatomic, strong) SearchViewController *searchViewController;
 @property (nonatomic, strong) ComposeViewController *composeViewController;
 @property (nonatomic, strong) AccountViewController *accountViewController;
 @property (nonatomic, strong) TrendingViewController *trendingViewController;
+@property (nonatomic, strong) LoadingViewController *loadingViewController;
+@property (nonatomic, strong) ActivityViewController *activityViewController;
+
+@property (weak, nonatomic) IBOutlet UIButton *homeButton;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (weak, nonatomic) IBOutlet UIButton *composeButton;
+@property (weak, nonatomic) IBOutlet UIButton *trendingButton;
+@property (weak, nonatomic) IBOutlet UIButton *accountButton;
+
+
 @property (weak, nonatomic) IBOutlet UIView *composeModal;
 @property (weak, nonatomic) IBOutlet UIButton *nevermindButton;
+
 @property (weak, nonatomic) IBOutlet UIView *textView;
 @property (weak, nonatomic) IBOutlet UIView *photoView;
 @property (weak, nonatomic) IBOutlet UIView *quoteView;
@@ -31,6 +45,7 @@
 @property (weak, nonatomic) IBOutlet UIView *chatView;
 @property (weak, nonatomic) IBOutlet UIView *videoView;
 
+@property (strong, nonatomic) UIImageView *tooltipView;
 
 - (IBAction)onHomeButton:(id)sender;
 - (IBAction)onSearchButton:(id)sender;
@@ -50,16 +65,18 @@
         // Custom initialization
         
         self.HomeViewController = [[HomeViewController alloc] init];
-        self.SearchViewController = [[SearchViewController alloc] init];
+        //self.SearchViewController = [[SearchViewController alloc] init];
         self.ComposeViewController = [[ComposeViewController alloc] init];
         self.AccountViewController = [[AccountViewController alloc] init];
         self.TrendingViewController = [[TrendingViewController alloc] init];
+        self.LoadingViewController = [[LoadingViewController alloc] init];
+        self.activityViewController = [[ActivityViewController alloc] init];
         
-        self.homeViewController.view.frame = self.contentView.frame;
-        self.searchViewController.view.frame = self.contentView.frame;
+        //self.homeViewController.view.frame = self.contentView.frame;
+        //self.searchViewController.view.frame = self.contentView.frame;
         self.composeViewController.view.frame = self.contentView.frame;
         self.accountViewController.view.frame = self.contentView.frame;
-        self.trendingViewController.view.frame = self.contentView.frame;
+        self.activityViewController.view.frame = self.contentView.frame;
         
     }
     return self;
@@ -76,6 +93,14 @@
     // add homeview
     [self.contentView addSubview:self.homeViewController.view];
     
+    
+    // add tooltip
+    UIImage * tooltipImage = [UIImage imageNamed:@"tooltip"];
+    self.tooltipView = [[UIImageView alloc] initWithImage:tooltipImage];
+    self.tooltipView.frame = CGRectMake(6, 462, tooltipImage.size.width, tooltipImage.size.height);
+    [self.view addSubview:self.tooltipView];
+    [self startTooltip];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,19 +111,25 @@
 
 - (IBAction)onHomeButton:(id)sender {
     
-    
     [self.contentView addSubview:self.homeViewController.view];
-    
+    [self startTooltip];
 }
 
 - (IBAction)onSearchButton:(id)sender {
     
-    [self.contentView addSubview:self.searchViewController.view];
+    [self stopTooltip];
     
+    //self.trendingViewController.view.frame = self.contentView.frame;
+    [self.contentView addSubview:self.loadingViewController.view];
+    
+    [self performSelector:@selector(loadTrending) withObject:nil afterDelay:2];
+        
 }
 
 - (IBAction)onComposeButton:(id)sender {
-
+    
+    [self stopTooltip];
+    
     //[self.contentView addSubview:self.composeViewController.view];
     
     // animate modal in
@@ -114,68 +145,144 @@
     self.photoView.frame = CGRectMake(self.photoView.frame.origin.x, self.view.frame.size.height, self.photoView.frame.size.width, self.photoView.frame.size.height);
     self.quoteView.frame = CGRectMake(self.quoteView.frame.origin.x, self.view.frame.size.height, self.quoteView.frame.size.width, self.quoteView.frame.size.height);
     
-    self.linkView.frame = CGRectMake(self.linkView.frame.origin.x, 155, self.linkView.frame.size.width, self.linkView.frame.size.height);
-    self.chatView.frame = CGRectMake(self.chatView.frame.origin.x, 155, self.chatView.frame.size.width, self.chatView.frame.size.height);
-    self.videoView.frame = CGRectMake(self.videoView.frame.origin.x, 155, self.videoView.frame.size.width, self.videoView.frame.size.height);
+    self.linkView.frame = CGRectMake(self.linkView.frame.origin.x, self.view.frame.size.height, self.linkView.frame.size.width, self.linkView.frame.size.height);
+    self.chatView.frame = CGRectMake(self.chatView.frame.origin.x, self.view.frame.size.height, self.chatView.frame.size.width, self.chatView.frame.size.height);
+    self.videoView.frame = CGRectMake(self.videoView.frame.origin.x, self.view.frame.size.height, self.videoView.frame.size.width, self.videoView.frame.size.height);
     
     
-    // 155
-    [UIView animateWithDuration:.4 delay:0 usingSpringWithDamping:.6 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    // toprow 155 bottomrow 274
+    
+    // first
+    [UIView animateWithDuration:.35 delay:0 usingSpringWithDamping:.8 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
+        self.photoView.frame = CGRectMake(self.photoView.frame.origin.x, 155, self.photoView.frame.size.width, self.photoView.frame.size.height);
+        
+    } completion:nil];
+    // second
+    [UIView animateWithDuration:.35 delay:.05 usingSpringWithDamping:.8 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
         
         self.textView.frame = CGRectMake(self.textView.frame.origin.x, 155, self.textView.frame.size.width, self.textView.frame.size.height);
-        self.photoView.frame = CGRectMake(self.photoView.frame.origin.x, 155, self.photoView.frame.size.width, self.photoView.frame.size.height);
+        
+    } completion:nil];
+    // third
+    [UIView animateWithDuration:.35 delay:.1 usingSpringWithDamping:.8 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
         self.quoteView.frame = CGRectMake(self.quoteView.frame.origin.x, 155, self.quoteView.frame.size.width, self.quoteView.frame.size.height);
         
     } completion:nil];
-    
-    // 274
-    [UIView animateWithDuration:.4 delay:0 usingSpringWithDamping:.4 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    // fourth
+    [UIView animateWithDuration:.35 delay:.15 usingSpringWithDamping:.7 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
         
         self.linkView.frame = CGRectMake(self.linkView.frame.origin.x, 274, self.linkView.frame.size.width, self.linkView.frame.size.height);
+        
+    } completion:nil];
+    // fifth
+    [UIView animateWithDuration:.35 delay:.20 usingSpringWithDamping:.7 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
         self.chatView.frame = CGRectMake(self.chatView.frame.origin.x, 274, self.chatView.frame.size.width, self.chatView.frame.size.height);
+        
+    } completion:nil];
+    // last
+    [UIView animateWithDuration:.35 delay:.25 usingSpringWithDamping:.7 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
         self.videoView.frame = CGRectMake(self.videoView.frame.origin.x, 274, self.videoView.frame.size.width, self.videoView.frame.size.height);
         
     } completion:nil];
-    
+        
 }
 
 - (IBAction)onAccountButton:(id)sender {
     
     [self.contentView addSubview:self.accountViewController.view];
+    [self startTooltip];
     
 }
 
 - (IBAction)onDismiss:(id)sender {
     
     // animate modal & nevermind out
-    [UIView animateWithDuration:.2 animations:^{
+    [UIView animateWithDuration:.4 animations:^{
         self.composeModal.alpha = 0;
         
         self.nevermindButton.frame = CGRectMake(self.nevermindButton.frame.origin.x, self.nevermindButton.frame.origin.y + self.nevermindButton.frame.size.height, self.nevermindButton.frame.size.width, self.nevermindButton.frame.size.height);
     }];
     
-    // animate compose buttons out
-    [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    
+    // first
+    [UIView animateWithDuration:.5 delay:0 usingSpringWithDamping:.8 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
+        self.photoView.frame = CGRectMake(self.photoView.frame.origin.x, 0 - self.photoView.frame.size.height, self.photoView.frame.size.width, self.photoView.frame.size.height);
+        
+    } completion:nil];
+    // second
+    [UIView animateWithDuration:.5 delay:.05 usingSpringWithDamping:.8 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
         
         self.textView.frame = CGRectMake(self.textView.frame.origin.x, 0 - self.textView.frame.size.height, self.textView.frame.size.width, self.textView.frame.size.height);
-        self.photoView.frame = CGRectMake(self.photoView.frame.origin.x, 0 - self.photoView.frame.size.height, self.photoView.frame.size.width, self.photoView.frame.size.height);
+        
+    } completion:nil];
+    // third
+    [UIView animateWithDuration:.5 delay:.1 usingSpringWithDamping:.8 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
         self.quoteView.frame = CGRectMake(self.quoteView.frame.origin.x, 0 - self.quoteView.frame.size.height, self.quoteView.frame.size.width, self.quoteView.frame.size.height);
+        
+    } completion:nil];
+    // fourth
+    [UIView animateWithDuration:.5 delay:.15 usingSpringWithDamping:.7 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
         self.linkView.frame = CGRectMake(self.linkView.frame.origin.x, 0 - self.linkView.frame.size.height, self.linkView.frame.size.width, self.linkView.frame.size.height);
+        
+    } completion:nil];
+    // fifth
+    [UIView animateWithDuration:.5 delay:.20 usingSpringWithDamping:.7 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
         self.chatView.frame = CGRectMake(self.chatView.frame.origin.x, 0 - self.chatView.frame.size.height, self.chatView.frame.size.width, self.chatView.frame.size.height);
+        
+    } completion:nil];
+    // last
+    [UIView animateWithDuration:.5 delay:.25 usingSpringWithDamping:.7 initialSpringVelocity:8 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
         self.videoView.frame = CGRectMake(self.videoView.frame.origin.x, 0 - self.videoView.frame.size.height, self.videoView.frame.size.width, self.videoView.frame.size.height);
         
     } completion:nil];
-    
+
     
 }
+
+
 
 - (IBAction)onTrendingButton:(id)sender {
     
-    [self.contentView addSubview:self.trendingViewController.view];
+    
+    //self.trendingViewController.view.frame = self.contentView.frame;
+    [self.contentView addSubview:self.activityViewController.view];
+    
+    [self startTooltip];
     
 }
 
-- (void)showCompose {
+- (void)loadTrending {
+    
+    [self.contentView addSubview:self.trendingViewController.view];
+
+}
+
+- (void)selectButton:(UIButton*)sender {
+    
+    
+}
+
+- (void)startTooltip {
+    
+    [UIView animateWithDuration:1 delay:1 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat | UIViewAnimationCurveEaseInOut animations:^{
+        self.tooltipView.frame = CGRectMake(6, 467, self.tooltipView.frame.size.width, self.tooltipView.frame.size.height);
+    } completion:nil];
+    self.tooltipView.hidden = NO;
+    
+}
+
+- (void)stopTooltip {
+    
+    self.tooltipView.hidden = YES;
     
 }
 
